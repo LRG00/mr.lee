@@ -1,8 +1,15 @@
+/*
+ * @Author: liruigang
+ * @Date: 2019-10-21 20:05:03
+ * @LastEditors: liruigang
+ * @LastEditTime: 2019-10-21 21:26:13
+ * @UI:
+ */
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import JwtService from '@/common/jwt.service'
-import { API_URL } from '@/common/config'
+// import JwtService from '@/common/jwt.service'
+import { API_URL } from '~/common/config'
 
 const ApiService = {
   init() {
@@ -10,9 +17,9 @@ const ApiService = {
     Vue.axios.defaults.baseURL = API_URL
   },
 
-  setHeader() {
-    Vue.axios.defaults.headers.common.Authorization = `Token ${JwtService.getToken()}`
-  },
+  // setHeader() {
+  //   Vue.axios.defaults.headers.common.Authorization = `Token ${JwtService.getToken()}`
+  // },
 
   query(resource, params) {
     return Vue.axios.get(resource, params).catch((error) => {

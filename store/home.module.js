@@ -2,7 +2,7 @@
  * @Author: liruigang
  * @Date: 2019-10-18 17:03:52
  * @LastEditors: liruigang
- * @LastEditTime: 2019-10-18 21:25:49
+ * @LastEditTime: 2019-10-21 21:25:39
  * @UI:
  */
 import { FETCH_ARTICLES, FETCH_TAGS, FETCH_MUSICS } from './actions.type'
@@ -17,7 +17,7 @@ import {
   TagsService,
   MusicService,
   ArticlesService
-} from '@/common/api.service'
+} from '~/common/api.service'
 
 const state = {
   tags: [],

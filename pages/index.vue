@@ -1,3 +1,10 @@
+<!--
+ * @Author: liruigang
+ * @Date: 2019-10-21 20:05:03
+ * @LastEditors: liruigang
+ * @LastEditTime: 2019-10-21 21:26:54
+ * @UI: 
+ -->
 <template>
   <div class="container">
     <div>
@@ -17,7 +24,7 @@
           target="_blank"
           class="button--grey"
         >
-          GitHub{{ $store.state.localStorage.anyValues }}
+          GitHub{{ tags }}
         </a>
       </div>
     </div>
@@ -25,21 +32,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Logo from '~/components/Logo.vue'
-// import { FETCH_TAGS } from "~/store/actions.type";
+import { FETCH_TAGS } from '~/store/actions.type'
 export default {
   components: {
     Logo
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'tags']),
+    tag() {
+      return this.$route.params.tag
+    }
+  },
+  mounted() {
+    this.$store.dispatch(FETCH_TAGS)
   }
-  // mounted() {
-  //   this.$store.dispatch(FETCH_TAGS);
-  // },
-  // computed: {
-  //   ...mapGetters(["isAuthenticated", "tags"]),
-  //   tag() {
-  //     return this.$route.params.tag;
-  //   }
-  // }
 }
 </script>
 

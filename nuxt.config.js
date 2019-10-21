@@ -1,3 +1,10 @@
+/*
+ * @Author: liruigang
+ * @Date: 2019-10-21 20:05:03
+ * @LastEditors: liruigang
+ * @LastEditTime: 2019-10-21 21:25:47
+ * @UI:
+ */
 export default {
   mode: 'universal',
   /*
@@ -27,7 +34,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/antd-ui'],
+  plugins: ['@/plugins/antd-ui', '@/plugins/vue-inject.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -38,7 +45,15 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-vuex-localstorage'],
+  modules: ['nuxt-vuex-localstorage', '@nuxtjs/axios'],
+  axios: {
+    requestInterceptor: (config, { store }) => {
+      // config.headers.common.Authorization =
+      //   store.state.user.headers.access_token
+      return config
+    },
+    responseInterceptor: (res, ctx) => {}
+  },
   /*
    ** Build configuration
    */
