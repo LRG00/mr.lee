@@ -8,24 +8,31 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        Mr.Lee
-      </h1>
-      <h2 class="subtitle">
-        My beautiful Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub{{ tags }}
-        </a>
+      <div class="gutter-example">
+        <a-row>
+          <a-col :span="18" :xs="24" :lg="18">
+            <div class="list-box">
+              <a-card>
+                <ArticleItem :articles="articles" />
+              </a-card>
+            </div>
+          </a-col>
+          <a-col style="padding: 0 12px" :span="6" :xs="24" :lg="6">
+            <div class="tags-box">
+              <a-card hoverable>
+                <div slot="cover" style="font-size: 16px;padding:10px">
+                  <a-icon type="home" /> 标签
+                </div>
+                <a-tag
+                  v-for="(tag, idx) in tags"
+                  :key="idx"
+                  style="font-size: 14px;margin:5px"
+                  >{{ tag }}</a-tag
+                >
+              </a-card>
+            </div>
+          </a-col>
+        </a-row>
       </div>
     </div>
   </div>
@@ -33,53 +40,37 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Logo from '~/components/Logo.vue'
-import { FETCH_TAGS } from '~/store/actions.type'
+import ArticleItem from '~/components/ArticleItem'
+import { FETCH_TAGS, FETCH_ARTICLES } from '~/store/actions.type'
 export default {
   components: {
-    Logo
+    ArticleItem
   },
   computed: {
-    ...mapGetters(['isAuthenticated', 'tags']),
+    ...mapGetters(['articles', 'tags']),
     tag() {
       return this.$route.params.tag
     }
   },
-  mounted() {
-    this.$store.dispatch(FETCH_TAGS)
+  async fetch({ store, params }) {
+    await store.dispatch(FETCH_TAGS)
+    await store.dispatch(FETCH_ARTICLES)
   }
 }
 </script>
 
-<style>
+<style lang="less">
 .container {
+  padding-top: 4rem;
+  max-width: 1140px;
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  .gutter-box {
+    border: 1px solid #00a0e9;
+  }
+  .sidebar {
+    padding: 5px 10px 10px;
+    background: #f3f3f3;
+    border-radius: 4px;
+  }
 }
 </style>

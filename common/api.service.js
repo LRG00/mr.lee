@@ -68,7 +68,7 @@ export const MusicService = {
 
 export const ArticlesService = {
   query(type, params) {
-    return ApiService.query('articles' + (type === 'feed' ? '/feed' : ''), {
+    return ApiService.query('articles', {
       params
     })
   },

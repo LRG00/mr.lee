@@ -37,6 +37,8 @@
 </template>
 
 <script>
+// import { mapState } from "vuex";
+import { LOGIN } from '@/store/actions.type'
 export default {
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: 'normal_login' })
@@ -44,16 +46,18 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault()
-      this.form.validateFields((err, values) => {
+      this.form.validateFields((err, { email, password }) => {
         if (!err) {
-          // console.log('Received values of form: ', values)
+          this.$store
+            .dispatch(LOGIN, { email, password })
+            .then(() => this.$router.push('/'))
         }
       })
     }
   }
 }
 </script>
-<style>
+<style lang="less">
 #components-form-demo-normal-login {
   width: 600px;
   /* margin: 0 auto; */
