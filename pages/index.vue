@@ -13,8 +13,8 @@
     <Share />
     <ScrollToTop />
     <div>
-      <div class="gutter-example">
-        <a-row>
+      <div>
+        <a-row :gutter="16">
           <a-col :span="18" :xs="24" :lg="18">
             <div class="list-box">
               <a-card hoverable>
@@ -22,7 +22,7 @@
               </a-card>
             </div>
           </a-col>
-          <a-col style="padding: 0 12px" :span="6" :xs="24" :lg="6">
+          <a-col :span="6" :xs="24" :lg="6">
             <div class="tags-box">
               <a-card hoverable>
                 <div slot="cover" style="font-size: 16px;padding:10px">
@@ -75,9 +75,6 @@ export default {
   padding-top: 4rem;
   max-width: 1140px;
   margin: 0 auto;
-  .gutter-box {
-    border: 1px solid #00a0e9;
-  }
   .sidebar {
     padding: 5px 10px 10px;
     background: #f3f3f3;

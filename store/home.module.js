@@ -5,24 +5,32 @@
  * @LastEditTime: 2019-10-21 21:25:39
  * @UI:
  */
-import { FETCH_ARTICLES, FETCH_TAGS, FETCH_MUSICS } from './actions.type'
+import {
+  FETCH_ARTICLES,
+  FETCH_TAGS,
+  FETCH_MUSICS,
+  FETCH_EDITCODES
+} from './actions.type'
 import {
   FETCH_START,
   FETCH_END,
   SET_TAGS,
   SET_MUSICS,
+  SET_EDITCODES,
   UPDATE_ARTICLE_IN_LIST
 } from './mutations.type'
 import {
   TagsService,
   MusicService,
-  ArticlesService
+  ArticlesService,
+  EditCodeService
 } from '~/common/api.service'
 
 const state = {
   tags: [],
   musics: [],
   articles: [],
+  editcodes: [],
   isLoading: true,
   articlesCount: 0
 }
@@ -42,6 +50,9 @@ const getters = {
   },
   musics(state) {
     return state.musics
+  },
+  editcodes(state) {
+    return state.editcodes
   }
 }
 
@@ -73,6 +84,16 @@ const actions = {
       .catch((error) => {
         throw new Error(error)
       })
+  },
+  [FETCH_EDITCODES]({ commit }) {
+    return EditCodeService.get()
+      .then(({ data }) => {
+        console.log(data, '0000000000000')
+        commit(SET_EDITCODES, data.list)
+      })
+      .catch((error) => {
+        throw new Error(error)
+      })
   }
 }
 
@@ -91,6 +112,9 @@ const mutations = {
   },
   [SET_MUSICS](state, list) {
     state.musics = list
+  },
+  [SET_EDITCODES](state, list) {
+    state.editcodes = list
   },
   [UPDATE_ARTICLE_IN_LIST](state, data) {
     state.articles = state.articles.map((article) => {
