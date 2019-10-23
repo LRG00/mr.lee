@@ -2,7 +2,7 @@
  * @Author: liruigang
  * @Date: 2019-10-21 20:05:03
  * @LastEditors: liruigang
- * @LastEditTime: 2019-10-21 21:25:47
+ * @LastEditTime: 2019-10-22 20:12:11
  * @UI:
  */
 export default {
@@ -33,7 +33,7 @@ export default {
   css: [
     // 'ant-design-vue/dist/antd.css',
     { src: 'ant-design-vue/dist/antd.less', lang: 'less' },
-    { src: '~assets/index.less', lang: 'less' }
+    { src: '~assets/css/index.less', lang: 'less' }
   ],
   /*
    ** Plugins to load before mounting the App
@@ -69,7 +69,8 @@ export default {
       less: {
         javascriptEnabled: true,
         modifyVars: {
-          'primary-color': '#1da979'
+          'primary-color': '#1da979',
+          'card-padding-base': '5px'
           // 'component-background': '#ffffff'
         }
       }

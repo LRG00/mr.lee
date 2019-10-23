@@ -1,6 +1,13 @@
+<!--
+ * @Author: liruigang
+ * @Date: 2019-10-22 19:05:12
+ * @LastEditors: liruigang
+ * @LastEditTime: 2019-10-22 20:16:43
+ * @UI: 
+ -->
 <template>
   <div>
-    <a-card style="margin-top: 24px;" :bordered="false">
+    <a-card :bordered="false">
       <a-list
         size="large"
         row-key="id"

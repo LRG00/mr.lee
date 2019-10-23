@@ -2,17 +2,22 @@
  * @Author: liruigang
  * @Date: 2019-10-21 20:05:03
  * @LastEditors: liruigang
- * @LastEditTime: 2019-10-21 21:26:54
+ * @LastEditTime: 2019-10-23 00:18:59
  * @UI: 
  -->
 <template>
   <div class="container">
+    <div style="height:300px;max-width:1140px">
+      <Banner />
+    </div>
+    <Share />
+    <ScrollToTop />
     <div>
       <div class="gutter-example">
         <a-row>
           <a-col :span="18" :xs="24" :lg="18">
             <div class="list-box">
-              <a-card>
+              <a-card hoverable>
                 <ArticleItem :articles="articles" />
               </a-card>
             </div>
@@ -41,10 +46,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import ArticleItem from '~/components/ArticleItem'
+import Banner from '~/components/Banner'
+import Share from '~/components/Share'
+import ScrollToTop from '~/components/ScrollToTop'
 import { FETCH_TAGS, FETCH_ARTICLES } from '~/store/actions.type'
 export default {
   components: {
-    ArticleItem
+    ArticleItem,
+    Banner,
+    Share,
+    ScrollToTop
   },
   computed: {
     ...mapGetters(['articles', 'tags']),
