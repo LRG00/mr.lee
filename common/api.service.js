@@ -28,6 +28,7 @@ const ApiService = {
   },
 
   get(resource, slug = '') {
+    console.log(resource,'resource')
     return Vue.axios.get(`${resource}/${slug}`).catch((error) => {
       throw new Error(`[RWV] ApiService ${error}`)
     })
@@ -63,6 +64,13 @@ export const TagsService = {
 export const MusicService = {
   get() {
     return ApiService.get('music')
+  }
+}
+
+export const EditCodeService = {
+  get() {
+    console.log('开始执行editcode')
+    return ApiService.get('editcode')
   }
 }
 

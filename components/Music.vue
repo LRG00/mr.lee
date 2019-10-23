@@ -249,12 +249,12 @@ export default {
 }
 </script>
 <style>
-.ant-drawer-body {
+/* .ant-drawer-body {
   background: #313131;
 }
 .ant-drawer-content-wrapper {
   height: 90px !important;
-}
+} */
 .m-playbar .btns,
 .m-playbar .head,
 .m-playbar .play,
