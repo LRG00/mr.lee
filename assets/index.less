@@ -1,4 +1,30 @@
 html {
   font-family: 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB', 'Segoe UI',
     'Microsoft YaHei', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+// 小于600 14px
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 0.875rem;
+}
+}
+// 超过600 16px
+@media only screen and (min-width: 600px) {
+  html {
+      font-size: 1rem;
+  }
+}
+// 超过1000 18px
+@media only screen and (min-width: 1200px) {
+  html {
+      font-size: 1.125rem;
+  }
 }

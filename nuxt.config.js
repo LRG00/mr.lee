@@ -24,9 +24,9 @@ module.exports =  {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
-      { rel: 'stylesheet', href: 'https://www.w3schools.com/w3css/4/w3.css' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway' },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
+      // { rel: 'stylesheet', href: 'https://www.w3schools.com/w3css/4/w3.css' },
+      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway' },
+      // { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
     ]
   },
   /*
@@ -38,7 +38,7 @@ module.exports =  {
    */
   css: [
     // 'ant-design-vue/dist/antd.css',
-    { src: 'ant-design-vue/dist/antd.less', lang: 'less' },
+    // { src: 'ant-design-vue/dist/antd.less', lang: 'less' },
     { src: '~assets/index.less', lang: 'less' }
   ],
   /*
@@ -73,8 +73,8 @@ module.exports =  {
       less: {
         javascriptEnabled: true,
         modifyVars: {
-          'primary-color': '#1da979',
-          'card-padding-base': '5px'
+          // 'primary-color': '#1da979',
+          // 'card-padding-base': '5px'
         }
       }
     },
