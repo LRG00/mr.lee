@@ -5,6 +5,7 @@
  * @LastEditTime: 2019-10-22 20:12:11
  * @UI:
  */
+import { resolve } from 'path'
 module.exports =  {
   // mode: 'universal',
   /*
@@ -43,7 +44,7 @@ module.exports =  {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/antd-ui', '@/plugins/vue-inject.js'],
+  plugins: ['@/plugins/antd-ui', '@/plugins/vue-inject.js', '@/plugins/icon'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -77,6 +78,18 @@ module.exports =  {
         }
       }
     },
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      // 排除 nuxt 原配置的影响,Nuxt 默认有vue-loader,会处理svg,img等
+      // 找到匹配.svg的规则,然后将存放svg文件的目录排除
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+      svgRule.exclude = [resolve(__dirname, 'icons/svg')]
+
+      //添加loader规则
+      config.module.rules.push({
+        test: /\.svg$/, //匹配.svg
+        include: [resolve(__dirname, 'icons/svg')], //将存放svg的目录加入到loader处理目录
+        use: [{ loader: 'svg-sprite-loader'}]
+      })
+    }
   }
 }
