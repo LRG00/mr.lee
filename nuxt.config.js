@@ -5,8 +5,8 @@
  * @LastEditTime: 2019-10-22 20:12:11
  * @UI:
  */
-export default {
-  mode: 'universal',
+module.exports =  {
+  // mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -22,7 +22,7 @@ export default {
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
       { rel: 'stylesheet', href: 'https://www.w3schools.com/w3css/4/w3.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Raleway' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' },
@@ -38,7 +38,7 @@ export default {
   css: [
     // 'ant-design-vue/dist/antd.css',
     { src: 'ant-design-vue/dist/antd.less', lang: 'less' },
-    { src: '~assets/css/index.less', lang: 'less' }
+    { src: '~assets/index.less', lang: 'less' }
   ],
   /*
    ** Plugins to load before mounting the App
@@ -57,8 +57,6 @@ export default {
   modules: ['nuxt-vuex-localstorage', '@nuxtjs/axios'],
   axios: {
     requestInterceptor: (config, { store }) => {
-      // config.headers.common.Authorization =
-      //   store.state.user.headers.access_token
       return config
     },
     responseInterceptor: (res, ctx) => {}
@@ -76,7 +74,6 @@ export default {
         modifyVars: {
           'primary-color': '#1da979',
           'card-padding-base': '5px'
-          // 'component-background': '#ffffff'
         }
       }
     },

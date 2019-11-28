@@ -15,9 +15,10 @@ module.exports = {
     'plugin:nuxt/recommended'
   ],
   plugins: [
-    'prettier'
+    'eslint'
   ],
   // add your custom rules here
   rules: {
+    "quotes": [0, "single"],
   }
 }
