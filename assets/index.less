@@ -1,3 +1,4 @@
+@import './common.less';
 html {
   font-family: 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB', 'Segoe UI',
     'Microsoft YaHei', sans-serif;
@@ -9,22 +10,33 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  background: rgb(238, 238, 238);
 }
 // 小于600 14px
 @media only screen and (max-width: 600px) {
   html {
     font-size: 0.875rem;
+    .main-right,.main-nav {
+      display: none;
+    }
+    .main-content {
+      margin-left: 0px !important;
+    }
 }
 }
-// 超过600 16px
-@media only screen and (min-width: 600px) {
+// 超过600 小于1200 16px
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
   html {
       font-size: 1rem;
+      .main-right {
+        display: none;
+      }
   }
 }
 // 超过1000 18px
 @media only screen and (min-width: 1200px) {
   html {
       font-size: 1.125rem;
+
   }
 }
