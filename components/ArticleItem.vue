@@ -22,7 +22,11 @@
             <icon-text type="message" :text="item.id" />
           </template>
           <a-list-item-meta>
-            <a slot="title" href="https://vue.ant.design/">{{ item.title }}</a>
+            <a slot="title">
+              <nuxt-link class="logo-font" :to="`/article/${item.id}`">
+                {{ item.title }}
+              </nuxt-link>
+            </a>
             <template slot="description">
               <span>
                 <template v-if="item.tagList.length">

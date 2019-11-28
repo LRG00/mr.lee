@@ -7,7 +7,7 @@
  -->
 <template>
   <div>
-    <button id="myBtn" title="Go to top" @click="topFunction">顶</button>
+    <span id="myBtn" title="Go to top" @click="topFunction">Top</span>
   </div>
 </template>
 <script>

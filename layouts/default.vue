@@ -7,20 +7,22 @@
  -->
 <template>
   <div
-    style="height:100%;background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);"
   >
-    <BlogHeader />
+  <!-- <div
+    style="height:100%;background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);"
+  > -->
+    <!-- <BlogHeader /> -->
     <nuxt />
-    <BlogFooter />
+    <!-- <BlogFooter /> -->
   </div>
 </template>
 <script>
-import BlogFooter from './TheFooter'
-import BlogHeader from './theHeader'
+// import BlogFooter from './TheFooter'
+// import BlogHeader from './theHeader'
 export default {
   components: {
-    BlogFooter,
-    BlogHeader
+    // BlogFooter,
+    // BlogHeader
   }
 }
 </script>
