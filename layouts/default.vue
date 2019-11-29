@@ -6,24 +6,30 @@
  * @UI: 
  -->
 <template>
-  <div
-  >
-  <!-- <div
-    style="height:100%;background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);"
-  > -->
-    <!-- <BlogHeader /> -->
-    <nuxt />
-    <!-- <BlogFooter /> -->
+  <div class="layouts-default">
+    <BlogHeader />
+    <div class="default-main">
+      <nuxt />
+    </div>
+    <BlogFooter />
   </div>
 </template>
 <script>
-// import BlogFooter from './TheFooter'
-// import BlogHeader from './theHeader'
+import BlogFooter from './footer'
+import BlogHeader from './header'
 export default {
   components: {
-    // BlogFooter,
-    // BlogHeader
+    BlogFooter,
+    BlogHeader
   }
 }
 </script>
-<style></style>
+<style lang="less">
+.layouts-default {
+  .default-main {
+    padding-top: 75px;
+    padding-bottom: 15px;
+    height: 100%;
+  }
+}
+</style>
