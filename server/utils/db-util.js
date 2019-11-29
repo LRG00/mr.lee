@@ -1,5 +1,3 @@
-const mysql = require("mysql")
-// const Sequelize = require('sequelize');
 import Sequelize from 'sequelize'
 var config = {
   database: 'abc', // 使用哪个数据库
@@ -9,7 +7,7 @@ var config = {
   port: 3306 // 端口号，MySQL默认3306
 };
 
-module.exports = new Sequelize(config.database, config.username, config.password, {
+const sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
     dialect: 'mysql',
     pool: {
@@ -18,3 +16,15 @@ module.exports = new Sequelize(config.database, config.username, config.password
         idle: 30000
     }
 });
+
+sequelize
+.sync({ force: true })
+// .authenticate()
+.then(() => {
+    console.log('Connection has been established successfully.');
+})
+.catch(err => {
+    console.error('Unable to connect to the database:', err);
+});
+
+module.exports = sequelize

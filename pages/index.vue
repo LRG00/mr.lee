@@ -25,6 +25,9 @@
   import Icon from '@/icons'
   import MainNav from '../components/MainNav'
   import MainContent from '../components/MainContent'
+  import {
+  ArticlesService
+} from "@/common/api.service";
   export default {
     components: {
       MainNav,
@@ -32,6 +35,9 @@
     },
     created () {
       this.iconList = Icon.getNameList()
+    },
+    mounted() {
+      ArticlesService.query()
     },
     methods: {
     },
