@@ -1,4 +1,4 @@
-import User from '../models/userModel'
+import userModel from '../models/userModel'
 import jwt from 'jsonwebtoken'
 export class UserController {
   // 注册
@@ -6,7 +6,7 @@ export class UserController {
     const req = ctx.request.body
     if (req.mobile && req.password) {
       try {
-        const query = await User.getUserInfo(req)
+        const query = await userModel.getUserInfo(req)
         if (query) {
           ctx.response.status = 200
           ctx.body = {
@@ -19,7 +19,7 @@ export class UserController {
             mobile: req.mobile,
             username: req.username
           }
-          const data = await User.add(param)
+          const data = await userModel.add(param)
           ctx.response.status = 200
           ctx.body = {
             code: 0,
@@ -43,7 +43,7 @@ export class UserController {
   async signIn(ctx) {
     const formData = ctx.request.body
     console.log(formData, 'vvv')
-    let result = await User.getOneByUserNameAndPassword(formData)
+    let result = await userModel.getOneByUserNameAndPassword(formData)
     console.log(result, 'result')
     if (!formData.password || !formData.username) {
       return (ctx.body = {
@@ -83,7 +83,7 @@ export class UserController {
         desc: '参数错误'
       })
     } else {
-      let data = await User.getUserInfo(req)
+      let data = await userModel.getUserInfo(req)
       if (req.mobile == data.mobile) {
         const info = {
           createdAt: data.createdAt,
