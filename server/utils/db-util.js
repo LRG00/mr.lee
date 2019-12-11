@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize'
 var config = {
-  database: 'abc', // 使用哪个数据库
+  database: 'xinqi', // 使用哪个数据库
   username: 'root', // 用户名
   password: '123456', // 口令
   host: '120.77.239.216', // 主机名
@@ -18,8 +18,8 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 });
 
 sequelize
-.sync({ force: true })
-// .authenticate()
+// .sync({ force: true })
+.authenticate()
 .then(() => {
     console.log('Connection has been established successfully.');
 })

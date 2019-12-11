@@ -4,40 +4,60 @@ const Model = Sequelize.Model;
 class User extends Model {}
 User.init({
   // 属性
-  firstName: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  lastName: {
+  username: {
     type: Sequelize.STRING
-    // allowNull 默认为 true
-  }
+  },
+  email: {
+    type: Sequelize.STRING
+  },
+  mobile: {
+    type: Sequelize.STRING
+  },
+  image: {
+    type: Sequelize.STRING
+  },
+  password: {
+    type: Sequelize.STRING
+  },
 }, {
   sequelize,
-  modelName: 'user'
+  modelName: 'user',
+  freezeTableName: true
   // 参数
 })
 
 // 查找用户
 module.exports = {
+  getOneByUserNameAndPassword: ({ username, password }) => {
+    return User.findOne({
+      where: {
+        username: username,
+        password: password
+      }
+    });
+  },
+  getUserInfo: ({ mobile }) => {
+    return User.findOne({
+      where: {
+        mobile: mobile
+      }
+    });
+  },
   getArticleList: ({ pageSize, pageNo }) => {
     return Articles.findAndCountAll({
       limit: pageSize,
       offset: (pageNo - 1) * pageSize
     });
   },
-  add: () => {
+  add: (params) => {
     // User.sync({ force: false }).then(() => {
       // 现在数据库中的 `users` 表对应于模型定义
-      return User.create({
-        firstName: 'John1',
-        lastName: 'Hancock1201011'
-      });
+      return User.create(params);
     // });
   },
   update: (params) => {
     return Articles.update(params, {
-        where: {article_id: params.article_id}
+        where: {id: params.id}
     });
   },
   detele: (params) => {

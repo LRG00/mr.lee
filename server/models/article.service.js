@@ -1,8 +1,8 @@
-import User from '../models/articleModel'
+import User from '../models/userModel'
 
-export class ArticleService {
+export class ArticleService { 
   async get () {
-    const resultData = await User.getArticleList({pageSize: 1, pageNo: 10});
-    return resultData.rows
+    const resultData = await User.add();
+    console.log(resultData, 'ccccccccccccccccccccccccc')
   }
 }
