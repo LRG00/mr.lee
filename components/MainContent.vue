@@ -1,50 +1,21 @@
 <template>
   <div class="content">
-    <div class="card">
+    <div class="card" :key="index" v-for="(item, index) in list">
       <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
       <div class="card-container">
-        <nuxt-link to="/article/162"><h4>标题</h4></nuxt-link>
-        <p class="title">标题我是一颗小虎牙</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
-      <div class="card-container">
-        <h4>标题</h4>
-        <p class="title">标题我是一颗小虎牙</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
-      <div class="card-container">
-        <nuxt-link to="/article/162"><h4>标题</h4></nuxt-link>
-        <p class="title">标题我是一颗小虎牙</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
-      <div class="card-container">
-        <h4>标题</h4>
-        <p class="title">标题我是一颗小虎牙</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
-      <div class="card-container">
-        <h4>标题</h4>
-        <p class="title">标题我是一颗小虎牙</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
-      <div class="card-container">
-        <h4>标题</h4>
-        <p class="title">标题我是一颗小虎牙</p>
+        <nuxt-link :to="`/article/${item.id}`"><h4>{{item.title}}</h4></nuxt-link>
+        <p class="title">{{item.title}}</p>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  props: {
+    list: {}
+  }
+}
+</script>
 <style lang="less">
 .content {
   

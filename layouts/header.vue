@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="header lrg-pbk lrg-jz">
       <div class="header-logo">
-        <!-- Mr.Lee -->
+        Mr.Lee
         <!-- <button class="openbtn" @click="openNav()">☰ Toggle Sidepanel</button>  -->
       </div>
     </div>

@@ -12,4 +12,11 @@ export class indexController {
       data: res
     }
   }
+  @post('article/one')
+  async xxx (ctx, next) {
+    const res = await articleController.getDetail(ctx)
+    ctx.body = {
+      data: res
+    }
+  }
 }

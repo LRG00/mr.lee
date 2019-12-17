@@ -1,6 +1,6 @@
 <template>
   <div class="footer-container">
-    <div class="footer lrg-pbk lrg-jz">footer</div>
+    <div class="footer lrg-pbk lrg-jz">长路漫漫 为剑作伴</div>
   </div>
 </template>
 

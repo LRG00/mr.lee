@@ -1,6 +1,6 @@
 <template>
   <div>
-    xxxxxxxxxx
+    {{detail.body}}
   </div>
 </template>
 
@@ -8,6 +8,15 @@
 export default {
   created () {
     console.log(this.$router.history.current.params.id)
-  }
+  },
+  async asyncData(context) {
+    const detail = await context.app.$axios.post('api/article/one', {id: context.params.id}).then(res => {
+      console.log(res, 'dddddddddddddddddd')
+      return res.data.data
+    })
+    return {
+      detail
+    }
+  },
 }
 </script>

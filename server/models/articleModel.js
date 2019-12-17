@@ -41,6 +41,11 @@ module.exports = {
     console.log(pageSize, pageNo, 'mmm')
     return Article.findAll({});
   },
+  detail: ({id}) => {
+    return Article.findOne({
+      id
+    });
+  },
   add: () => {
     // User.sync({ force: false }).then(() => {
       // 现在数据库中的 `users` 表对应于模型定义

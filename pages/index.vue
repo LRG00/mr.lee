@@ -15,7 +15,8 @@
       <main-nav></main-nav>
     </div>
     <div class="main-content">
-      <main-content></main-content>
+      
+      <main-content :list='list'></main-content>
     </div>
     <div class="main-right">main-right</div>
   </div>
@@ -29,6 +30,11 @@
   ArticlesService
 } from "@/common/api.service";
   export default {
+    data() {
+      return {
+        description: ''
+      }
+    },
     components: {
       MainNav,
       MainContent
@@ -37,7 +43,15 @@
       this.iconList = Icon.getNameList()
     },
     mounted() {
-      ArticlesService.query()
+      console.log(this.description, 'm')
+    },
+    async asyncData(context) {
+      const list = await context.app.$axios.post('api/article/list').then(res => {
+        return res.data.data
+      })
+      return {
+        list
+      }
     },
     methods: {
     },
