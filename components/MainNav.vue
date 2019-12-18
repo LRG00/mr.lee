@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       index: 0,
-      navList: ['我的收藏', '文章列表', '我的code', '云裳爆款']
+      navList: ['我的文章', '文章列表', '我的code', '云裳爆款']
     }
   },
   methods: {

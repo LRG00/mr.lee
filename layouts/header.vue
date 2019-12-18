@@ -2,7 +2,7 @@
   <div class="header-container">
     <div class="header lrg-pbk lrg-jz">
       <div class="header-logo">
-        Mr.Lee
+        <nuxt-link to="/">Mr.Lee</nuxt-link>
         <!-- <button class="openbtn" @click="openNav()">☰ Toggle Sidepanel</button>  -->
       </div>
     </div>

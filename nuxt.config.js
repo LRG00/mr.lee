@@ -55,7 +55,19 @@ module.exports =  {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-vuex-localstorage', '@nuxtjs/axios'],
+  modules: ['nuxt-vuex-localstorage', '@nuxtjs/axios', '@tui-nuxt/editor'],
+  tui: {
+    editor: {
+      language: 'zh_CN',
+      stylesheet: {
+        editor: 'tui-editor/dist/tui-editor.min.css',
+        contents: 'tui-editor/dist/tui-editor-contents.min.css',
+        codemirror: 'codemirror/lib/codemirror.css',
+        codeHighlight: 'highlight.js/styles/github.css',
+        colorPicker: 'tui-color-picker/dist/tui-color-picker.min.css'
+      }
+    }
+  },
   axios: {
     requestInterceptor: (config, { store }) => {
       return config

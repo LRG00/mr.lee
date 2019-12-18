@@ -1,6 +1,7 @@
 <template>
-  <div>
-    {{detail.body}}
+  <div class="article-detail">
+     <TuiEditorViewer :value="detail.body" />
+    <!-- {{detail.body}} -->
   </div>
 </template>
 
@@ -11,7 +12,6 @@ export default {
   },
   async asyncData(context) {
     const detail = await context.app.$axios.post('api/article/one', {id: context.params.id}).then(res => {
-      console.log(res, 'dddddddddddddddddd')
       return res.data.data
     })
     return {
@@ -20,3 +20,11 @@ export default {
   },
 }
 </script>
+<style lang="less">
+  .article-detail {
+    width: 770px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.55);
+    padding: 15px;
+  }
+</style>

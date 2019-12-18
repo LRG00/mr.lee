@@ -10,12 +10,12 @@
   <!-- <icon-svg name="daoru"></icon-svg>
   <icon-svg :name="iconList[0]"></icon-svg>
   <span>哈哈</span> -->
+  <scroll-to-top></scroll-to-top>
   <div class="main lrg-pbk lrg-jz">
     <div class="main-nav">
       <main-nav></main-nav>
     </div>
     <div class="main-content">
-      
       <main-content :list='list'></main-content>
     </div>
     <div class="main-right">main-right</div>
@@ -26,6 +26,7 @@
   import Icon from '@/icons'
   import MainNav from '../components/MainNav'
   import MainContent from '../components/MainContent'
+  import ScrollToTop from '../components/ScrollToTop'
   import {
   ArticlesService
 } from "@/common/api.service";
@@ -37,6 +38,7 @@
     },
     components: {
       MainNav,
+      ScrollToTop,
       MainContent
     },
     created () {
@@ -59,6 +61,7 @@
 </script>
 <style lang="less">
   .page-home {
+    // background: url('../static/background.png');
     .main {
       display: flex;
       flex-direction: row;

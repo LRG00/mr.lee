@@ -42,8 +42,11 @@ module.exports = {
     return Article.findAll({});
   },
   detail: ({id}) => {
+    console.log(id, 'jjjjjjjjjjjjjjjj')
     return Article.findOne({
-      id
+      where: {
+        id
+      }
     });
   },
   add: () => {

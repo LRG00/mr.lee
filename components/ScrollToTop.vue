@@ -7,7 +7,7 @@
  -->
 <template>
   <div>
-    <span id="myBtn" title="Go to top" @click="topFunction">Top</span>
+    <span id="myBtn" title="Go to top" @click="topFunction">top</span>
   </div>
 </template>
 <script>
@@ -47,14 +47,13 @@ export default {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: red;
-  color: white;
+  background: rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  padding: 15px;
+  padding: 5px;
   border-radius: 4px;
 }
 
 #myBtn:hover {
-  background-color: #555;
+  background-color: #c1c1c1;
 }
 </style>

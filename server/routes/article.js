@@ -15,6 +15,7 @@ export class indexController {
   @post('article/one')
   async xxx (ctx, next) {
     const res = await articleController.getDetail(ctx)
+    console.log(res, 'cccccccccccccccc')
     ctx.body = {
       data: res
     }
