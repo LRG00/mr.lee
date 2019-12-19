@@ -27,9 +27,9 @@
   import MainNav from '../components/MainNav'
   import MainContent from '../components/MainContent'
   import ScrollToTop from '../components/ScrollToTop'
-  import {
-  ArticlesService
-} from "@/common/api.service";
+//   import {
+//   ArticlesService
+// } from "@/common/api.service";
   export default {
     data() {
       return {

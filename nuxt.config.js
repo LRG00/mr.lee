@@ -7,7 +7,7 @@
  */
 import { resolve } from 'path'
 module.exports =  {
-  // mode: 'universal',
+  mode: 'universal',
   /*
    ** Headers of the page
    */
@@ -69,10 +69,7 @@ module.exports =  {
     }
   },
   axios: {
-    requestInterceptor: (config, { store }) => {
-      return config
-    },
-    responseInterceptor: (res, ctx) => {}
+    proxy: true
   },
   /*
    ** Build configuration
