@@ -7,7 +7,7 @@
  -->
 <template>
   <div>
-    <span id="myBtn" title="Go to top" @click="topFunction">top</span>
+    <span id="myBtn" title="Go to top" @click="topFunction"><icon-svg style="margin-left:6px;margin-top:6px;" name="hddb"></icon-svg></span>
   </div>
 </template>
 <script>
@@ -50,7 +50,10 @@ export default {
   background: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   padding: 5px;
-  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #c1c1c1;
+  border-radius: 45px;
 }
 
 #myBtn:hover {

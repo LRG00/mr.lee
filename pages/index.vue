@@ -10,7 +10,6 @@
   <!-- <icon-svg name="daoru"></icon-svg>
   <icon-svg :name="iconList[0]"></icon-svg>
   <span>哈哈</span> -->
-  <scroll-to-top></scroll-to-top>
   <div class="main lrg-pbk lrg-jz">
     <div class="main-nav">
       <main-nav></main-nav>
@@ -18,7 +17,11 @@
     <div class="main-content">
       <main-content :list='list'></main-content>
     </div>
-    <div class="main-right">main-right</div>
+    <div class="main-right">
+      <div class="tag-container">
+        <span :key="index" v-for="(item, index) in tagList">{{item.tag}}</span>
+      </div>
+    </div>
   </div>
 </div>
 </template>
@@ -26,7 +29,6 @@
   import Icon from '@/icons'
   import MainNav from '../components/MainNav'
   import MainContent from '../components/MainContent'
-  import ScrollToTop from '../components/ScrollToTop'
 //   import {
 //   ArticlesService
 // } from "@/common/api.service";
@@ -38,7 +40,6 @@
     },
     components: {
       MainNav,
-      ScrollToTop,
       MainContent
     },
     created () {
@@ -51,8 +52,12 @@
       const list = await context.app.$axios.post('api/article/list').then(res => {
         return res.data.data
       })
+      const tagList = await context.app.$axios.post('api/tag/list').then(res => {
+        return res.data.data
+      })
       return {
-        list
+        list,
+        tagList
       }
     },
     methods: {
@@ -72,8 +77,22 @@
       }
       .main-right {
         width: 240px;
+        height: 200px;
         background: rgba(255, 255, 255, 0.6);
-        margin-left: 15px
+        margin-left: 15px;
+        .tag-container {
+          padding: 10px;
+        }
+        span {
+          border: 1px solid #d9d9d9;
+          background: #fafafa;
+          border-radius: 4px;
+          padding: 0 10px;
+          display: inline-block;
+          cursor: pointer;
+          margin-bottom: 10px;
+          margin-right: 8px;
+        }
       }
       .main-content {
         flex: 1;

@@ -7,6 +7,7 @@
  -->
 <template>
   <div class="layouts-default">
+    <scroll-to-top></scroll-to-top>
     <BlogHeader />
     <div class="default-main">
       <nuxt />
@@ -17,9 +18,11 @@
 <script>
 import BlogFooter from './footer'
 import BlogHeader from './header'
+import ScrollToTop from '../components/ScrollToTop'
 export default {
   components: {
     BlogFooter,
+    ScrollToTop,
     BlogHeader
   }
 }
