@@ -29,7 +29,12 @@ export default {
 </script>
 <style lang="less">
 .layouts-default {
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  min-height: 100vh;
+  flex-direction: column; 
   .default-main {
+    flex: 1;
     padding-top: 75px;
     padding-bottom: 15px;
     height: 100%;

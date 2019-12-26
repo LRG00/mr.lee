@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="card" :key="index" v-for="(item, index) in list">
-      <img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" />
+      <div style="height:114px;width:195px;"><img src="../static/streetart2.jpg" alt="Jane" style="height:114px;width:195px;" /></div>
       <div class="card-container">
         <nuxt-link :to="`/article/${item.id}`"><h4>{{item.title}}</h4></nuxt-link>
         <p class="title">{{item.title}}</p>

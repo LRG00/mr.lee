@@ -7,11 +7,8 @@
  -->
 <template>
   <div class="nav">
-    <a @click="handleClick(idx)" :class="index === idx ? 'active' : ''" :key="idx" v-for="(item, idx) in navList" href="#"><icon-svg name="up"></icon-svg> <span>{{item}}</span></a>
-    <!-- <span href="#"><icon-svg name="daoru"></icon-svg> <span>我的收藏</span></a>
-    <a class="active" href="#"><icon-svg name="daoru"></icon-svg> <span>我的收藏</span></a>
-    <a href="#"><icon-svg name="daoru"></icon-svg> <span>我的收藏</span></a>
-    <a href="#"><icon-svg name="daoru"></icon-svg> <span>我的收藏</span></a> -->
+    <a @click="handleClick(idx)" :class="index === idx ? 'active' : ''" :key="idx" v-for="(item, idx) in navList" :href="item.to"><icon-svg name="up"></icon-svg> <span>{{item.name}}</span></a>
+    
   </div>
 </template>
 <script>
@@ -19,7 +16,10 @@ export default {
   data () {
     return {
       index: 0,
-      navList: ['我的文章', '文章列表', '我的code', '云裳爆款']
+      navList: [
+        {name: '我的文章', to: '/'},
+        {name: '个人音乐', to: '/music'},
+      ]
     }
   },
   methods: {
