@@ -26,7 +26,7 @@ export const viewsMin = app => {
 }
 // 静态资源
 export const staticMin = app => {
-  app.use(koaStatic(r('../public')))
+  app.use(koaStatic(r('../upload-files')))
 }
 // 错误处理
 export const errorMin = app => {

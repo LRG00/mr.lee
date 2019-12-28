@@ -64,7 +64,11 @@ function uploadFile( ctx, options) {
       // 文件写入事件结束
       file.on('end', function() {
         result.success = true
+        result.filePath = filePath
+        result.path = _uploadFilePath
         result.message = '文件上传成功'
+        result.name = filename
+        result.mimetype = mimetype
         console.log('文件上传成功！')
       })
     })
